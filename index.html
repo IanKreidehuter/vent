@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>someday I'll get it — alex olsen</title>
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#15110e;--wall:#2a2420;--ink:#e8dccb;--dim:#8f8272;--eye:#7fb4c9;--glow:#c9a36b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#1b1612;}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,var(--wall),var(--bg) 70%) fixed,var(--bg);color:var(--ink);
+font-family:'Newsreader',Georgia,serif;font-size:1.2rem;line-height:1.65;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+#snd{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;z-index:9;background:none;border:1px solid var(--dim);
+color:var(--dim);font:inherit;font-size:.9rem;padding:.35rem .9rem;border-radius:99px;cursor:pointer}
+#snd:hover,#snd:focus-visible{color:var(--ink);border-color:var(--ink);outline:none}
+header{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 1.5rem 3rem}
+.hand{font-family:'Reenie Beanie','Segoe Print',cursive;font-size:clamp(2.4rem,9vw,4.6rem);line-height:1.05;margin:0}
+.hand span{display:block;margin-top:.4rem;color:var(--dim)}
+#eyes{width:min(320px,80vw);margin:2rem 0 1.5rem;overflow:visible}
+#face{transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.pupil{transition:r .3s}
+.lid{transform-origin:center;transition:transform .3s}
+.title{color:var(--dim);font-style:italic;font-size:1rem;margin:0}
+.hint{color:var(--dim);font-size:.9rem;margin-top:2.5rem;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px);opacity:.5}}
+main{max-width:34rem;margin:0 auto;padding:0 1.6rem 10rem}
+.fear{margin:0 0 5.5rem;opacity:0;transition:opacity 1.6s ease,transform .35s ease-out,filter .35s;will-change:transform}
+.fear.in{opacity:1}
+.fear.near{filter:blur(.6px);opacity:.55}
+.fear.shake{animation:shiver .12s linear infinite}
+@keyframes shiver{25%{margin-left:1px}75%{margin-left:-1px}}
+.fear.big{font-size:1.55rem;line-height:1.5;margin-top:9rem;color:#fff3df}
+.lead{color:var(--dim);font-style:italic}
+footer{text-align:center;padding:6rem 1.5rem 8rem}
+footer .hand{color:var(--glow);text-shadow:0 0 30px #c9a36b66}
+footer p{color:var(--dim);margin:.5rem 0 0}
+#heart{position:fixed;left:50%;bottom:-30vh;width:120vw;height:60vh;translate:-50% 0;border-radius:50%;pointer-events:none;
+background:radial-gradient(closest-side,#7a2f2440,transparent);animation:beat 1.1s infinite;z-index:-1}
+@keyframes beat{0%,30%,100%{transform:scale(1)}8%{transform:scale(1.06)}20%{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.fear{opacity:1}}
+</style>
+</head>
+<body>
+<div id="heart"></div>
+<button id="snd" aria-pressed="false">sound off</button>
+
+<header>
+  <p class="hand">please don't touch me<span>i'm scared of you</span></p>
+  <svg id="eyes" viewBox="0 0 320 130" aria-hidden="true">
+    <g id="face">
+      <g transform="translate(90 65)">
+        <ellipse rx="34" ry="24" fill="#0c0a08" stroke="#3a322b" stroke-width="3"/>
+        <circle class="iris" r="19" fill="var(--eye)"/>
+        <circle class="pupil" r="8" fill="#050403"/>
+        <circle class="shine" cx="-5" cy="-6" r="3.5" fill="#fff" opacity=".85"/>
+        <ellipse class="lid" rx="36" ry="26" fill="#15110e" opacity="0"/>
+      </g>
+      <g transform="translate(230 65)">
+        <ellipse rx="34" ry="24" fill="#0c0a08" stroke="#3a322b" stroke-width="3"/>
+        <circle class="iris" r="19" fill="var(--eye)"/>
+        <circle class="pupil" r="8" fill="#050403"/>
+        <circle class="shine" cx="-5" cy="-6" r="3.5" fill="#fff" opacity=".85"/>
+      </g>
+    </g>
+  </svg>
+  <p class="title">someday I'll get it &middot; by alex olsen</p>
+  <p class="hint">stay still. read slowly. move closer and it flinches.</p>
+</header>
+
+<main id="fears">
+  <p class="fear lead">I'm afraid of being abandoned after I finally let someone close.</p>
+  <p class="fear">I'm afraid of being chosen for a moment, then discarded when I stop being convenient, useful, entertaining, or easy to love.</p>
+  <p class="fear">I'm afraid that kindness is only the beginning of another manipulation.</p>
+  <p class="fear">I'm afraid of trusting someone, giving them my heart, and finding out that I was the only one taking it seriously.</p>
+  <p class="fear">I'm afraid of being misunderstood, because when someone misunderstands me, I feel like I have to explain myself over and over just to prove that my intentions were never what they thought.</p>
+  <p class="fear">I'm afraid of not knowing. I'm afraid of unanswered questions, changed behavior, silence, hidden things, and the empty space where an explanation should be. My mind wants to fill that space, because uncertainty feels unbearable.</p>
+  <p class="fear">I'm afraid of needing someone too much.</p>
+  <p class="fear">I'm afraid that if I love someone deeply, they will somehow gain the power to destroy my peace just by leaving.</p>
+  <p class="fear">I'm afraid of being nobody's first choice.</p>
+  <p class="fear">I'm afraid that people will eventually see something wrong with me and decide I'm not worth staying for.</p>
+  <p class="fear">I'm afraid of becoming useless. Of failing. Of not being as capable as everyone thinks I am.</p>
+  <p class="fear">I'm afraid of disappointing people who expect something from me.</p>
+  <p class="fear">I'm afraid of becoming so guarded that nobody can reach me anymore.</p>
+  <p class="fear">And somehow, I'm also afraid of the opposite: opening the door again and getting hurt by the same kind of story.</p>
+  <p class="fear">I'm afraid of losing things that feel like they're mine and realizing I never had control over whether they stayed.</p>
+  <p class="fear">I'm afraid of having to keep surviving without ever getting to rest.</p>
+  <p class="fear">I'm afraid that I'll spend years waiting for someone to choose me while my own life passes by.</p>
+  <p class="fear">I'm afraid that the little boy inside me will keep waiting for someone to come take care of him, and that I'll never be able to give him what he needed.</p>
+  <p class="fear lead">And underneath all of that, I think there's one fear that connects almost everything:</p>
+  <p class="fear big">I'm afraid that I can love with my whole heart and still not be enough to make someone stay.</p>
+</main>
+
+<footer>
+  <p class="hand">someday I'll get it</p>
+  <p>alex olsen</p>
+</footer>
+
+<script>
+(function(){
+var fears=[].slice.call(document.querySelectorAll('.fear'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.35});
+fears.forEach(function(f){io.observe(f)});
+
+var face=document.getElementById('face'),svg=document.getElementById('eyes');
+var pupils=[].slice.call(svg.querySelectorAll('.pupil')),irises=[].slice.call(svg.querySelectorAll('.iris'));
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function react(x,y){
+  var r=svg.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+  var dx=x-cx,dy=y-cy,d=Math.hypot(dx,dy)||1,near=Math.max(0,1-d/260);
+  var k=Math.min(d,200)/200;
+  pupils.forEach(function(p,i){
+    p.setAttribute('r',8+near*7);
+    p.setAttribute('cx',(dx/d)*5*k);p.setAttribute('cy',(dy/d)*4*k);
+    irises[i].setAttribute('r',19-near*3);
+  });
+  if(!reduce)face.style.transform='translate('+(-dx/d*near*14)+'px,'+(-dy/d*near*8)+'px) scale('+(1-near*.12)+')';
+  fears.forEach(function(f){
+    var b=f.getBoundingClientRect();
+    if(b.bottom<0||b.top>innerHeight)return;
+    var fx=b.left+b.width/2,fy=b.top+b.height/2,ex=fx-x,ey=fy-y,dist=Math.hypot(ex,ey)||1;
+    var n=Math.max(0,1-dist/190);
+    if(n>0&&!reduce){
+      f.style.transform='translate('+(ex/dist*n*22)+'px,'+(ey/dist*n*14)+'px) scale('+(1-n*.05)+')';
+      f.classList.add('near');f.classList.toggle('shake',n>.55);
+    }else{f.style.transform='';f.classList.remove('near','shake')}
+  });
+  heartRate=1100-near*350;
+}
+var heartRate=1100;
+addEventListener('pointermove',function(e){react(e.clientX,e.clientY)});
+addEventListener('pointerleave',function(){heartRate=1100});
+
+/* sound: soft warm pad + gentle rain + rare quiet chime */
+var ac,master,on=false,timer,btn=document.getElementById('snd');
+function chime(){
+  if(!on)return;
+  var f=[523.25,587.33,659.25,783.99][Math.floor(Math.random()*4)],t=ac.currentTime;
+  var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.05);g.gain.exponentialRampToValueAtTime(.0005,t+3.5);
+  o.connect(g).connect(master);o.start(t);o.stop(t+3.6);
+  timer=setTimeout(chime,7000+Math.random()*6000);
+}
+function build(){
+  ac=new (window.AudioContext||window.webkitAudioContext)();
+  master=ac.createGain();master.gain.value=0;master.connect(ac.destination);
+  var lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;lp.connect(master);
+  [130.8,196,261.6,329.6].forEach(function(f,i){
+    var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.value=.05;
+    var l=ac.createOscillator(),lg=ac.createGain();l.frequency.value=.05+i*.03;lg.gain.value=.02;l.connect(lg).connect(g.gain);l.start();
+    o.connect(g).connect(lp);o.start();
+  });
+  var len=ac.sampleRate*2,buf=ac.createBuffer(1,len,ac.sampleRate),d=buf.getChannelData(0);
+  for(var i=0;i<len;i++)d[i]=Math.random()*2-1;
+  var n=ac.createBufferSource();n.buffer=buf;n.loop=true;
+  var hp=ac.createBiquadFilter();hp.type='highpass';hp.frequency.value=1200;
+  var lp2=ac.createBiquadFilter();lp2.type='lowpass';lp2.frequency.value=5000;
+  var ng=ac.createGain();ng.gain.value=.018;
+  n.connect(hp).connect(lp2).connect(ng).connect(master);n.start();
+}
+function toggle(){
+  try{
+    if(!ac)build();
+    on=!on;
+    if(on){ac.resume();master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(.6,ac.currentTime+3);timer=setTimeout(chime,3000);}
+    else{clearTimeout(timer);master.gain.linearRampToValueAtTime(0,ac.currentTime+.8);}
+    btn.textContent=on?'sound on':'sound off';btn.setAttribute('aria-pressed',on);
+  }catch(e){btn.textContent='no sound here'}
+}
+btn.addEventListener('click',toggle);
+addEventListener('pointerdown',function(e){
+  if(e.target===btn)return;
+  face.style.transform='scale(.8)';setTimeout(function(){face.style.transform=''},220);
+});
+})();
+</script>
+</body>
+</html>
